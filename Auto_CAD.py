@@ -72,8 +72,8 @@ with st.echo(code_location='below'):
     reject=50 #powerline inteference noise  
     quality=20 #doesn't require change
     
-    st.markdown('Download sample files for healthy people: https://drive.google.com/uc?export=download&id=1qFB7UJwVDXwyWtrdP2kngJJoCTE3PAJP ')
-    st.markdown('Download sample files for CAD patient: https://drive.google.com/uc?export=download&id=1dJ5FLJGmDmEDUD20VWMaW-lTwhiI5bTQ')
+    st.markdown('Download the sample file for healthy people: https://drive.google.com/uc?export=download&id=1qFB7UJwVDXwyWtrdP2kngJJoCTE3PAJP ')
+    st.markdown('Download the sample file for CAD patient: https://drive.google.com/uc?export=download&id=1dJ5FLJGmDmEDUD20VWMaW-lTwhiI5bTQ')
     
     #%% ecg data import
     uploaded_file = st.file_uploader('Please select a csv file which contains ECG data to upload')
