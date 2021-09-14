@@ -1,0 +1,5 @@
+pywt
+neurokit2
+pyhrv
+ecgdetectors
+streamlit
