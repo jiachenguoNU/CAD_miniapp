@@ -1,4 +1,4 @@
-pywt
+pyecg
 neurokit2
 pyhrv
 ecgdetectors
