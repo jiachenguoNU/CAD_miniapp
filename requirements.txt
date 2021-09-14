@@ -1,5 +1,5 @@
 pyecg
 neurokit2
 pyhrv
-ecgdetectors
+py-ecg-detectors
 streamlit
