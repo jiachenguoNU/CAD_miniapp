@@ -124,7 +124,7 @@ st.markdown('Progress bar-----10%')
 st.progress(10)
 st.subheader('A.1 ECG visualization')
 st.markdown('_______________________________________________________________________________________________________')
-st.markdown('Want to see the imported ECG? Toggle A.1 on the left panel to plot the ECG signal.')
+st.markdown('Want to see the imported ECG? Check A.1 on the left panel to plot the ECG signal.')
 st.markdown('_______________________________________________________________________________________________________')
 if st.sidebar.checkbox('A.1 ECG visualization'):
     st.markdown('Original and filtered ECG data-----done!!!')
@@ -145,7 +145,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
     st.markdown('_______________________________________________________________________________________________________')
     st.markdown('''The original ECG data consists some low-frequency and high-frequency noise, which may affect the accuracy of the R peak detection algorithm. Therefore,
                 ECG signal has to be denoised. To this end, the Butterworth filter is used to eliminate the noise.''')
-    st.markdown('Toggle A.2 to start denoising the ECG data.')            
+    st.markdown('Check A.2 to start denoising the ECG data.')            
     st.markdown('_______________________________________________________________________________________________________')
     
     if st.sidebar.checkbox('A.2 ECG data denoising'):
@@ -166,7 +166,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
         st.subheader('A.3 R peaks detection')
         st.markdown('_______________________________________________________________________________________________________')
         st.markdown('''After denoising, R peaks can be automatically identified using the R peak detection algorithm.''')
-        st.markdown('Toggle A.3 to detect R peaks of the ECG signal.')
+        st.markdown('Check A.3 to detect R peaks of the ECG signal.')
         st.markdown('_______________________________________________________________________________________________________')
         if st.sidebar.checkbox('A.3 R peaks detection'):
             st.markdown('R peaks detection-----done!!!')
@@ -193,7 +193,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
             st.latex(r'''
                         HR=\frac{60}{t_{RR}}
                         ''')
-            st.markdown('Toggle A.4 to derive the HRV curve.')
+            st.markdown('Check A.4 to derive the HRV curve.')
             st.markdown('_______________________________________________________________________________________________________')
                                     
             if st.sidebar.checkbox('A.4 HRV derivation'):
@@ -233,7 +233,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                 st.markdown('_______________________________________________________________________________________________________')
                 st.markdown('''To fully uncover the hidden characteristics behind HRV, features from the time domain, frequency domain and time-
                             frequency domain can be extracted.''')
-                st.markdown('''Toggle B.1 to extract features from the time domain.''')
+                st.markdown('''Check B.1 to extract features from the time domain.''')
                 st.markdown('_______________________________________________________________________________________________________')
                 if st.sidebar.checkbox('B.1 Time domain features'):
 
@@ -277,7 +277,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                 and HF can also be deemed as an indicator for the balance between sympathetic and parasympathetic modulation. 
                                 Therefore, in order to extract features in the frequency domain, the power spectral density (PSD) of HRV is calculated first.''')
                     
-                    st.markdown('Toggle B.2 to derive the PSD curve of HRV.')
+                    st.markdown('Check B.2 to derive the PSD curve of HRV.')
                     st.markdown('_______________________________________________________________________________________________________')
                     if st.sidebar.checkbox('B.2 Frequency domain features'):
                     
@@ -310,7 +310,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                     not be sufficient to reflect the hidden complexities of HRV. Accordingly, time-frequency transformation is also used to 
                                     extract more features. Here discrete wavelet transform is used to decompose HRV.
                                     ''')
-                        st.markdown('Toggle B.3 to carry out wavelet decomposition.')
+                        st.markdown('Check B.3 to carry out wavelet decomposition.')
                         st.markdown('_______________________________________________________________________________________________________')
                         
                         if st.sidebar.checkbox('B.3 Time-frequency domain features'):
@@ -398,6 +398,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                         ensures the maximized distance between the decision boundary and data points. The nearest data points 
                                         to the decision boundary are named as support vectors. Meanwhile, SVM has been shown to be very 
                                         effective for problems with relatively small datasets.''')
+                            st.markdown('Check C.1 to see the diagnosis result.')
                             st.markdown('_______________________________________________________________________________________________________')
                             image = Image.open('unsplash.jpg')
                             st.image(image,width=500)
@@ -443,7 +444,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                 st.header('D. Code of the mini-app')
                                 st.markdown('Progress bar-----90%')
                                 st.progress(90)
-                                st.markdown('If you want to see the code of this mini-app, please toggle D.1.')
+                                st.markdown('If you want to see the code of this mini-app, please check D.1.')
                                 if st.sidebar.checkbox('D.1 Code'):
                                     st.markdown('The code of this program can be found on: https://github.com/jiachenguoNU/CAD_miniapp')
 
