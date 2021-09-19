@@ -442,5 +442,5 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                 st.progress(90)
                                 st.header('D. Code')
                                 if st.sidebar.checkbox('D.1 Code'):
-                                    st.markdown('The code of this program can be found on: https://github.com/jiachenguoNU/CAD_miniapp/edit/main/Auto_CAD.py')
+                                    st.markdown('The code of this program can be found on: https://github.com/jiachenguoNU/CAD_miniapp')
 
