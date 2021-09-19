@@ -271,9 +271,10 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                     st.subheader('B.2 Frequency domain features')
                     st.markdown('_______________________________________________________________________________________________________')
                     st.markdown('''The power distribution of HRV in the frequency domain can effectively
-                                reflect the functionality of the cardiac autonomic modulation. For example, it has been shown that the power
-                                in the high frequency (HF) domain can be used to represent vagal modulation, whereas the power in the 
-                                low-frequency domain corresponds to the sympathetic and parasympathetic modulation. The ratio between LF
+                                reflect the functionality of the cardiac autonomic modulation. For example, it has been shown that total power can reflect abnormal
+                                autonomic activity; the power
+                                in the high frequency (HF) domain can be used to represent parasympathetic modulation, whereas the power in the 
+                                low-frequency domain corresponds to the sympathetic modulation. The ratio between LF
                                 and HF can also be deemed as an indicator for the balance between sympathetic and parasympathetic modulation. 
                                 Therefore, in order to extract features in the frequency domain, the power spectral density (PSD) of HRV is calculated first.''')
                     
@@ -310,6 +311,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                     not be sufficient to reflect the hidden complexities of HRV. Accordingly, time-frequency transformation is also used to 
                                     extract more features. Here discrete wavelet transform is used to decompose HRV.
                                     ''')
+                        
                         st.markdown('Check B.3 to carry out wavelet decomposition.')
                         st.markdown('_______________________________________________________________________________________________________')
                         
@@ -348,7 +350,13 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                             figwave.savefig(buf, format="png")
                             st.markdown('Wavelet decomposition-----done!!!')
                             st.image(buf)
-                            
+                            st.markdown('''Nonlinear feature extraction techniques are used for wavelet coefficients at each different level. 3 kinds of entropies, namely
+                                        Shannon entropy, approximation entropy, and sampling entropy are calculated. Among them, Shannon entropy measures the data uncertainty
+                                        and variability; approximation entropy quantifies the amount of regularity and the unpredictability of fluctuations; sampling entropy is
+                                        generally used to assess complexities of physiological signals.
+
+                                        
+                                        ''')
                             waveHealth=[nk.entropy_shannon(ca3),nk.entropy_shannon(cd3)
                             ,nk.entropy_shannon(cd2)
                             ,nk.entropy_shannon(cd1)
@@ -374,7 +382,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                             feature=np.hstack((timeHealth,freqHealth,waveHealth))
                             feature=np.reshape(feature,(1, -1))
                             ftframe=pd.DataFrame(feature,columns=['mean','SD','SDSD'
-                                                                ,'Total power','Low frequency power','High frequency power','LF/HF'
+                                                                ,'Total power','Low-frequency power','High-frequency power','LF/HF'
                                                                 ,'Shannon entropy_CD3','Shannon entropy_CD2','Shannon entropy_CD1','Shannon entropy_CA3'
                                                                 ,'Approximate entropy_CD3','Approximate entropy_CD2','Approximate entropy_CD1','Approximate entropy_CA3'
                                                                 ,'Sampling entropy_CD3','Sampling entropy_CD2','Sampling entropy_CD1','Sampling entropy_CA3'])
