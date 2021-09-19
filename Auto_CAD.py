@@ -246,23 +246,23 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                     timeHealth=[mean,sdnn,sdsd] # time domain features storation
                     st.markdown('''Common linear statistical values for a time series include the mean, standard deviation, and standard
                                 deviation of successive differences. These values can be used effectively to assess the overall behavior
-                                of the signal in the time domain.  As a result, three linear features have been extracted in the time domain.''')
+                                of the signal in the time domain.  As a result, three linear features are extracted in the time domain.''')
                     st.markdown('The mean heartbeat duration is defined below:')
                     st.latex(r'''
                         \bar{\Delta}_{t}=\sum_{j=1}^{n} \Delta_{t_{i}} 
                         ''')
-                    st.markdown('The standard deviation of heartbeat duration (sdnn) is defined as follows:')
+                    st.markdown('The standard deviation of heartbeat duration (SD) is defined as follows:')
                     st.latex(r'''
                         S D=\sqrt{\frac{1}{n-1} \sum_{j=1}^{n}\left(\Delta_{t_{j}}-\overline{\Delta}_t\right)^{2}}  
                         ''')
-                    st.markdown('The standard deviation of heartbeat duration differences (sdsd) is defined in the equation below:')
+                    st.markdown('The standard deviation of heartbeat duration differences (SDSD) is defined in the equation below:')
                     st.latex(r'''
                          S D S D=\sqrt{\frac{1}{n-1} \sum_{j=1}^{n}\left(\Delta\left(\Delta_{t_{j}}\right)-\overline{\Delta\left(\Delta_{t}\right)}\right)^{2}}  
                         ''')                            
                     featuret=np.array([mean,sdnn,sdsd])
                     featuret=np.hstack(featuret)
                     featuret=np.reshape(featuret,(1,-1))
-                    ftframe=pd.DataFrame(featuret,columns=['mean','sdnn','sdsd'])
+                    ftframe=pd.DataFrame(featuret,columns=['mean','SD','SDSD'])
                     st.markdown('Features extracted from the time domain are summarized below:')
                     st.write(ftframe)
                     
@@ -271,11 +271,11 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                     st.subheader('B.2 Frequency domain features')
                     st.markdown('_______________________________________________________________________________________________________')
                     st.markdown('''The power distribution of HRV in the frequency domain can effectively
-                                reflect on the functionality of the cardiac autonomic modulation. For example, it has been shown that the power
+                                reflect the functionality of the cardiac autonomic modulation. For example, it has been shown that the power
                                 in the high frequency (HF) domain can be used to represent vagal modulation, whereas the power in the 
                                 low-frequency domain corresponds to the sympathetic and parasympathetic modulation. The ratio between LF
                                 and HF can also be deemed as an indicator for the balance between sympathetic and parasympathetic modulation. 
-                                Therefore, for the features in the frequency domain, the power spectral density (PSD) of HRV is calculated first.''')
+                                Therefore, in order to extract features in the frequency domain, the power spectral density (PSD) of HRV is calculated first.''')
                     
                     st.markdown('Toggle B.2 to derive the PSD curve of HRV.')
                     st.markdown('_______________________________________________________________________________________________________')
@@ -308,7 +308,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                         st.markdown('''
                                     HRV is highly nonlinear and non-stationary. As a consequence, features from the time domain and frequency domain might 
                                     not be sufficient to reflect the hidden complexities of HRV. Accordingly, time-frequency transformation is also used to 
-                                    extract more features. Here discrete wavelet transform is used to decompose the orginal signal.
+                                    extract more features. Here discrete wavelet transform is used to decompose HRV.
                                     ''')
                         st.markdown('Toggle B.3 to carry out wavelet decomposition.')
                         st.markdown('_______________________________________________________________________________________________________')
@@ -373,7 +373,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
 
                             feature=np.hstack((timeHealth,freqHealth,waveHealth))
                             feature=np.reshape(feature,(1, -1))
-                            ftframe=pd.DataFrame(feature,columns=['mean','SDNN','SDSD'
+                            ftframe=pd.DataFrame(feature,columns=['mean','SD','SDSD'
                                                                 ,'Total power','Low frequency power','High frequency power','LF/HF'
                                                                 ,'Shannon entropy_CD3','Shannon entropy_CD2','Shannon entropy_CD1','Shannon entropy_CA3'
                                                                 ,'Approximate entropy_CD3','Approximate entropy_CD2','Approximate entropy_CD1','Approximate entropy_CA3'
@@ -443,6 +443,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                 st.header('D. Code of the mini-app')
                                 st.markdown('Progress bar-----90%')
                                 st.progress(90)
+                                st.markdown('If you want to see the code of this mini-app, please toggle D.1.')
                                 if st.sidebar.checkbox('D.1 Code'):
                                     st.markdown('The code of this program can be found on: https://github.com/jiachenguoNU/CAD_miniapp')
 
