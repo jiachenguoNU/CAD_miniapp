@@ -438,9 +438,10 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                             st.markdown('<p class="noCAD">Coronary Artery Disease is not detected! </p>',unsafe_allow_html=True)
                                 else:
                                     st.markdown('<p class="CAD">Coronary Artery Disease is detected </p> ',unsafe_allow_html=True)
+
+                                st.header('D. Code')
                                 st.markdown('Progress bar-----90%')
                                 st.progress(90)
-                                st.header('D. Code')
                                 if st.sidebar.checkbox('D.1 Code'):
                                     st.markdown('The code of this program can be found on: https://github.com/jiachenguoNU/CAD_miniapp')
 
