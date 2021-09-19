@@ -131,7 +131,7 @@ st.markdown('___________________________________________________________________
 st.markdown('Want to see the imported ECG? Check A.1 on the left panel to plot the ECG signal.')
 st.markdown('_______________________________________________________________________________________________________')
 if st.sidebar.checkbox('A.1 ECG visualization'):
-    st.markdown('Original and filtered ECG data-----done!!!')
+    st.markdown('Original ECG data-----done!!!')
     figecg, (ax1,ax2) = plt.subplots(2,1,figsize=(10,5),gridspec_kw={'height_ratios': [1, 1],'hspace':0.5})
     ax1.plot(t,s0)
     ax1.title.set_text('Original ECG data (all)')
