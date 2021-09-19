@@ -71,8 +71,12 @@ lowcut = 0.3
 highcut = 15
 reject=50 #powerline inteference noise  
 quality=20 #doesn't require change
-st.markdown('Download sample files for healthy people: https://drive.google.com/uc?export=download&id=1qFB7UJwVDXwyWtrdP2kngJJoCTE3PAJP ')
-st.markdown('Download sample files for CAD patient: https://drive.google.com/uc?export=download&id=1dJ5FLJGmDmEDUD20VWMaW-lTwhiI5bTQ')
+st.markdown('Download sample file 1 for healthy people: https://drive.google.com/uc?export=download&id=18ZU5soT9sNLJg424ROomB1ivtzO7_216 ')
+st.markdown('Download sample file 2 for healthy people: https://drive.google.com/uc?export=download&id=1R8uy8pbgLBKNb3vfWZFMhdsKA4T3AHcG ')
+st.markdown('Download sample file 3 for healthy people: https://drive.google.com/uc?export=download&id=1cG95GGSrZ1EjoxLmehWyJfhkhOTfWbNV ')
+st.markdown('Download sample file 1 for CAD patient: https://drive.google.com/uc?export=download&id=1dYvOE-TUp7pnuMABis4u-8_nr8KC_h-L')
+st.markdown('Download sample file 2 for CAD patient: https://drive.google.com/uc?export=download&id=1vDrn7pyexfAaC4Pmu3P6ZbcI3Hed1akI')
+st.markdown('Download sample file 3 for CAD patient: https://drive.google.com/uc?export=download&id=14C8JdHps-xo7N5Br09lhif0_XFNHAOc6')
 #%% ecg data import
 uploaded_file = st.file_uploader('To begin, please select a csv file which contains ECG data to upload.')
 if uploaded_file is not None:
