@@ -178,7 +178,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
             plt.xticks(fontsize=12)
             plt.yticks(fontsize=12)
             plt.plot(t[r_peaks],s[r_peaks],'ro')
-            plt.xlim(t[1000],t[3000])
+            plt.xlim(t[1500],t[3000])
             buf = BytesIO()
             figecgzoom.savefig(buf, format="png")
             st.image(buf)
