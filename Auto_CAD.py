@@ -128,7 +128,7 @@ st.markdown('Want to see the imported ECG? Check A.1 on the left panel to plot t
 st.markdown('_______________________________________________________________________________________________________')
 if st.sidebar.checkbox('A.1 ECG visualization'):
     st.markdown('Original and filtered ECG data-----done!!!')
-    figecg, (ax1,ax2) = plt.subplots(2,1,figsize=(5,5),gridspec_kw={'height_ratios': [1, 1],'hspace':0.5})
+    figecg, (ax1,ax2) = plt.subplots(2,1,figsize=(10,5),gridspec_kw={'height_ratios': [1, 1],'hspace':0.5})
     ax1.plot(t,s0)
     ax1.title.set_text('Original ECG data (all)')
     plt.xlabel('Time (s)')
@@ -150,7 +150,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
     
     if st.sidebar.checkbox('A.2 ECG data denoising'):
         st.markdown('ECG denoising-----done!!!')
-        figecg, (ax1,ax2) = plt.subplots(2,1,figsize=(5,5),gridspec_kw={'height_ratios': [1, 1],'hspace':0.5})
+        figecg, (ax1,ax2) = plt.subplots(2,1,figsize=(10,5),gridspec_kw={'height_ratios': [1, 1],'hspace':0.5})
         ax1.plot(t,s0)
         ax1.title.set_text('Filtered ECG data (all)')
         plt.xlabel('Time (s)')
@@ -209,7 +209,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                 hrv=60/a #calculate heart rate variability
                 
             
-                fighrv, axhrv = plt.subplots(figsize=(6,4))
+                fighrv, axhrv = plt.subplots(figsize=(10,4))
                 plt.plot(np.arange(0,len(hrv)),hrv)
                 plt.title('HRV')
                 plt.xlabel('Sample')
@@ -326,7 +326,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                             
                             
 
-                            figwave, axwave = plt.subplots(nrows=4, ncols=1, figsize=(6,4))
+                            figwave, axwave = plt.subplots(nrows=4, ncols=1, figsize=(10,4))
                             plt.subplot(5,1,1)
                             plt.plot(hrv)
                             plt.ylabel('HR/bpm')
