@@ -74,12 +74,12 @@ quality=20 #doesn't require change
 st.markdown('Download sample files for healthy people: https://drive.google.com/uc?export=download&id=1qFB7UJwVDXwyWtrdP2kngJJoCTE3PAJP ')
 st.markdown('Download sample files for CAD patient: https://drive.google.com/uc?export=download&id=1dJ5FLJGmDmEDUD20VWMaW-lTwhiI5bTQ')
 #%% ecg data import
-uploaded_file = st.file_uploader('To begin, please select a csv file which contains ECG data to upload')
+uploaded_file = st.file_uploader('To begin, please select a csv file which contains ECG data to upload.')
 if uploaded_file is not None:
     reader = pd.read_csv(uploaded_file,names=['Time (s)','Voltage (mv)'])
 #    data = list(reader)
 else:
-    st.markdown('Please choose a valid csv file which contains ECG data')
+    st.markdown('Please choose a valid csv file which contains ECG data.')
     
 data=np.asarray(reader)
 st.markdown('ECG data has been loaded successfully...')
@@ -124,7 +124,7 @@ st.markdown('Progress bar-----10%')
 st.progress(10)
 st.subheader('A.1 ECG visualization')
 st.markdown('_______________________________________________________________________________________________________')
-st.markdown('Want to see the imported ECG? Toggle A.1 on the left panel to plot the ECG signal')
+st.markdown('Want to see the imported ECG? Toggle A.1 on the left panel to plot the ECG signal.')
 st.markdown('_______________________________________________________________________________________________________')
 if st.sidebar.checkbox('A.1 ECG visualization'):
     st.markdown('Original and filtered ECG data-----done!!!')
@@ -143,9 +143,9 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
 
     st.subheader('A.2 ECG denoising')
     st.markdown('_______________________________________________________________________________________________________')
-    st.markdown('''The original ECG data consists some low-frequency and high-frequency noises, which may affect the accuracy of the R peak detection algorithm. Therefore,
-                ECG signal has to be denoised. To this end, the Butterworth filter is used to eliminate the noises''')
-    st.markdown('Toggle A.2 to start denoising the ECG data')            
+    st.markdown('''The original ECG data consists some low-frequency and high-frequency noise, which may affect the accuracy of the R peak detection algorithm. Therefore,
+                ECG signal has to be denoised. To this end, the Butterworth filter is used to eliminate the noise.''')
+    st.markdown('Toggle A.2 to start denoising the ECG data.')            
     st.markdown('_______________________________________________________________________________________________________')
     
     if st.sidebar.checkbox('A.2 ECG data denoising'):
@@ -165,8 +165,8 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
         
         st.subheader('A.3 R peaks detection')
         st.markdown('_______________________________________________________________________________________________________')
-        st.markdown('''After denoising, R peaks can be automatically identified using R peak detection algorithm.''')
-        st.markdown('Toggle A.3 to collect the R peaks of the ECG signal')
+        st.markdown('''After denoising, R peaks can be automatically identified using the R peak detection algorithm.''')
+        st.markdown('Toggle A.3 to detect R peaks of the ECG signal.')
         st.markdown('_______________________________________________________________________________________________________')
         if st.sidebar.checkbox('A.3 R peaks detection'):
             st.markdown('R peaks detection-----done!!!')
@@ -186,14 +186,14 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
             
             st.subheader('A.4 HRV derivation')
             st.markdown('_______________________________________________________________________________________________________')
-            st.markdown('''Upon obtaining R peaks, duration of each different heart beat can be obtained. Heart rate variability (HRV) can also be derived. HRV measures the variation from heartbeat to heartbeat, comparing 
-                        the duration between the R-peaks. This is significant as patients who exhibit CAD often have a reduced rhythm of HRV and can be compared to 
+            st.markdown('''Upon obtaining R peaks, duration of each different heart beat can be obtained. Heart rate variability (HRV) can then be derived. HRV measures
+                        the variation of heart beats from beat to beat. This is significant as patients who exhibit CAD often have a reduced rhythm of HRV and can be compared to 
                         healthy patients.''')
-            st.markdown('HRV can be obtained through the equation below')
+            st.markdown('HRV can be obtained through the equation below:')
             st.latex(r'''
                         HR=\frac{60}{t_{RR}}
                         ''')
-            st.markdown('Toggle A.4 to derive the HRV curve')
+            st.markdown('Toggle A.4 to derive the HRV curve.')
             st.markdown('_______________________________________________________________________________________________________')
                                     
             if st.sidebar.checkbox('A.4 HRV derivation'):
@@ -225,15 +225,15 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                 st.markdown('Progress bar-----40%')
                 st.progress(40)
                 
-                st.markdown('''The timing of the heartbeat is controlled by the heart’s electrical system. As a result, if the abnormality
+                st.markdown('''The timing of the heartbeat is controlled by the heart’s electrical system. As a result, if abnormality
                             is found in the cardiac electrical system, the heart rhyme might be abnormal and the heart may not function 
                             properly. Therefore, HRV can be used to diagnose the heart’s functionality.''')
                 
                 st.subheader('B.1 Time domain features')
                 st.markdown('_______________________________________________________________________________________________________')
-                st.markdown('''To fully uncover the hidden characteristics behind HRV, features from time domain, frequency domain and time-
-                            frequency domain have been extracted.''')
-                st.markdown('''Toggle B.1 to extract features from the time domain''')
+                st.markdown('''To fully uncover the hidden characteristics behind HRV, features from the time domain, frequency domain and time-
+                            frequency domain can be extracted.''')
+                st.markdown('''Toggle B.1 to extract features from the time domain.''')
                 st.markdown('_______________________________________________________________________________________________________')
                 if st.sidebar.checkbox('B.1 Time domain features'):
 
@@ -247,15 +247,15 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                     st.markdown('''Common linear statistical values for a time series include the mean, standard deviation, and standard
                                 deviation of successive differences. These values can be used effectively to assess the overall behavior
                                 of the signal in the time domain.  As a result, three linear features have been extracted in the time domain.''')
-                    st.markdown('Mean heartbeat duration is defined below.')
+                    st.markdown('The mean heartbeat duration is defined below:')
                     st.latex(r'''
                         \bar{\Delta}_{t}=\sum_{j=1}^{n} \Delta_{t_{i}} 
                         ''')
-                    st.markdown('The standard deviation of heartbeat duration (sdnn) is defined as follows.')
+                    st.markdown('The standard deviation of heartbeat duration (sdnn) is defined as follows:')
                     st.latex(r'''
                         S D=\sqrt{\frac{1}{n-1} \sum_{j=1}^{n}\left(\Delta_{t_{j}}-\overline{\Delta}_t\right)^{2}}  
                         ''')
-                    st.markdown('The standard deviation of heartbeat duration differences (sdsd) is defined in the equation below.')
+                    st.markdown('The standard deviation of heartbeat duration differences (sdsd) is defined in the equation below:')
                     st.latex(r'''
                          S D S D=\sqrt{\frac{1}{n-1} \sum_{j=1}^{n}\left(\Delta\left(\Delta_{t_{j}}\right)-\overline{\Delta\left(\Delta_{t}\right)}\right)^{2}}  
                         ''')                            
@@ -277,7 +277,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                 and HF can also be deemed as an indicator for the balance between sympathetic and parasympathetic modulation. 
                                 Therefore, for the features in the frequency domain, the power spectral density (PSD) of HRV is calculated first.''')
                     
-                    st.markdown('Toggle B.2 to derive the PSD curve of HRV')
+                    st.markdown('Toggle B.2 to derive the PSD curve of HRV.')
                     st.markdown('_______________________________________________________________________________________________________')
                     if st.sidebar.checkbox('B.2 Frequency domain features'):
                     
@@ -292,14 +292,14 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
 
                         st.pyplot(freqplot)
                         freqHealth=[ptotal,pLF,pHF,ratio] # freq domain features storation
-                        st.markdown('''Note that there are 3 regions of different colors in the PSD figure. The red one represents power distribution in the
+                        st.markdown('''Note that there are 3 regions of different colors in the figure above. The red one represents power distribution in the
                                     low-frequency domain whereas the blue one represents power distribution in the high-frequency domain. The ratio of the
                                     low-frequency power and high-frequency power LF/HF can also be calculated.''')
 
                         featuref=np.array([ptotal,pLF,pHF,ratio])
                         featuref=np.hstack(featuref)
                         featuref=np.reshape(featuref,(1,-1))
-                        ftframe=pd.DataFrame(featuref,columns=['Total power','Low frequency power','High frequency power','LF/HF'])
+                        ftframe=pd.DataFrame(featuref,columns=['Total power','Low-frequency power','High-frequency power','LF/HF'])
                         st.markdown('Features extracted from the frequency domain are summarized below:')
                         st.write(ftframe)
                         
@@ -307,10 +307,10 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                         st.markdown('_______________________________________________________________________________________________________')
                         st.markdown('''
                                     HRV is highly nonlinear and non-stationary. As a consequence, features from the time domain and frequency domain might 
-                                    not be sufficient to replicate the hidden complexity of HRV. Accordingly, time-frequency transformation is also used to 
+                                    not be sufficient to reflect the hidden complexities of HRV. Accordingly, time-frequency transformation is also used to 
                                     extract more features. Here discrete wavelet transform is used to decompose the orginal signal.
                                     ''')
-                        st.markdown('Toggle B.3 to carry out wavelet decomposition')
+                        st.markdown('Toggle B.3 to carry out wavelet decomposition.')
                         st.markdown('_______________________________________________________________________________________________________')
                         
                         if st.sidebar.checkbox('B.3 Time-frequency domain features'):
@@ -346,6 +346,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                             plt.xlabel('Sample')
                             buf = BytesIO()
                             figwave.savefig(buf, format="png")
+                            st.markdown('Wavelet decomposition-----done!!!')
                             st.image(buf)
                             
                             waveHealth=[nk.entropy_shannon(ca3),nk.entropy_shannon(cd3)
@@ -378,8 +379,8 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                                                 ,'Approximate entropy_CD3','Approximate entropy_CD2','Approximate entropy_CD1','Approximate entropy_CA3'
                                                                 ,'Sampling entropy_CD3','Sampling entropy_CD2','Sampling entropy_CD1','Sampling entropy_CA3'])
                             st.markdown('_______________________________________________________________________________________________________')
-                            st.markdown('''To conclude, 19 features have been extracted from HRV: namely 3 from time domain, 4 from frequency domain and 12 from
-                                        time-frequency domain''')
+                            st.markdown('''To conclude, 19 features have been extracted from HRV: namely 3 features from the time domain, 4 features from the frequency domain and 12 features from
+                                        the time-frequency domain.''')
                             st.markdown('All extracted features are summarized below:')
                             st.markdown('_______________________________________________________________________________________________________')
                             st.write(ftframe)
@@ -390,7 +391,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                             st.progress(70)
                             st.markdown('_______________________________________________________________________________________________________')
                             st.markdown('''With the obtained input features, support vector machine (SVM), one of the supervised learning 
-                                        algorithms, will be used to discover the hidden relationship between the input features and the CAD 
+                                        algorithms, is used to uncover the hidden relationship between the input features and the CAD 
                                         diagnosis result. During the 2-class classification process, SVM strives to find a decision boundary 
                                         (hyperplane) to divide the input feature space into two parts.''')
                             st.markdown('''The unique aspect of SVM is that it 
@@ -439,7 +440,7 @@ if st.sidebar.checkbox('A.1 ECG visualization'):
                                 else:
                                     st.markdown('<p class="CAD">Coronary Artery Disease is detected </p> ',unsafe_allow_html=True)
 
-                                st.header('D. Code')
+                                st.header('D. Code of the mini-app')
                                 st.markdown('Progress bar-----90%')
                                 st.progress(90)
                                 if st.sidebar.checkbox('D.1 Code'):
