@@ -74,7 +74,7 @@ quality=20 #doesn't require change
 st.markdown('Download sample files for healthy people: https://drive.google.com/uc?export=download&id=1qFB7UJwVDXwyWtrdP2kngJJoCTE3PAJP ')
 st.markdown('Download sample files for CAD patient: https://drive.google.com/uc?export=download&id=1dJ5FLJGmDmEDUD20VWMaW-lTwhiI5bTQ')
 #%% ecg data import
-uploaded_file = st.file_uploader('Please select a csv file which contains ECG data to upload')
+uploaded_file = st.file_uploader('To begin, please select a csv file which contains ECG data to upload')
 if uploaded_file is not None:
     reader = pd.read_csv(uploaded_file,names=['Time (s)','Voltage (mv)'])
 #    data = list(reader)
